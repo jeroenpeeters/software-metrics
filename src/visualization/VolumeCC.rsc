@@ -81,7 +81,7 @@ public Figure unitVolumeCCViz(ast, comments, int minVolume,int  minCC){
 	}
 	println("figs: <size(figures)>");
 	println("totalSize: <totalSize>");
-	return vcat([infoBox, vscrollable(treemap(slice(figures,0, size(figures)-1), height((totalSize/50 )*nf), width((totalSize/50)*nf)), lineWidth(0)) ], height(100));
+	return vcat([infoBox, vscrollable(treemap(slice(figures,0, size(figures)-3), height((totalSize/50 )*nf), width((totalSize/50)*nf)), lineWidth(0)) ], height(100));
 }
 
 public bool (Class, Class) classSort = bool (Class a, Class b) {

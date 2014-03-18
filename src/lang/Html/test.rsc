@@ -1,19 +1,11 @@
-module htmlReport
+module lang::Html::\test
 
-import IO;
+
 import List;
-
-public void htmlReport(){
-	
-	HTML5Node html = html([head([title(["something"])]), body([
-      ul([li(["bla"]), 
-          li(["foo", img({src("someref")}, [])])])])]);
-	
-	writeFile(|file:///home/jepee/Desktop/htmlReport.html|, toString(html));
-}
 
 data HTML5Node = html5node(str name, list[value] kids);
 data HTML5Attr = html5attr(str name, value val);
+
 
 HTML5Node a(value kids...) = html5node("a", kids);
 HTML5Node abbr(value kids...) = html5node("abbr", kids);
@@ -436,7 +428,7 @@ public HTML5Node example
           li("foo", img(href("someref"))))));
   
 str toString(HTML5Node x) {
-  attrs = {k | k:html5attr(_,_) <- x.kids};
+  attrs = {k | HTML5Attr k <- x.kids};
   kids = x.kids - attrs;
   return nodeToString(x.name, attrs, kids); 
 }
